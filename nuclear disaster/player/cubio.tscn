@@ -25,13 +25,11 @@ shape = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0 )
 
 [node name="Camera" type="Camera" parent="Target"]
-transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 15.728, 23.645, 15.922 )
-projection = 1
+transform = Transform( 1, 0, 0, 0, 0.62362, 0.781727, 0, -0.781727, 0.62362, -0.155, 5.566, 3.436 )
 current = true
-fov = 74.0
-size = 15.88
+size = 10.15
 near = 0.01
-far = 194.3
+far = 1500.0
 script = ExtResource( 3 )
 
 [node name="WinText" type="CenterContainer" parent="."]
@@ -40,9 +38,9 @@ anchor_right = 1.0
 margin_bottom = 100.0
 
 [node name="Holder" type="Control" parent="WinText"]
-margin_left = 512.0
+margin_left = 640.0
 margin_top = 50.0
-margin_right = 512.0
+margin_right = 640.0
 margin_bottom = 50.0
 
 [node name="TextLabel" type="Label" parent="WinText/Holder"]
