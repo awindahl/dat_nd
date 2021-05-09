@@ -2,25 +2,32 @@
 
 [sub_resource type="ProceduralSky" id=1]
 radiance_size = 1
-sky_top_color = Color( 0.219608, 0.192157, 0.364706, 1 )
-sky_horizon_color = Color( 0.341176, 0.0666667, 0.560784, 1 )
+sky_top_color = Color( 0.843137, 0.921569, 0.984314, 1 )
+sky_horizon_color = Color( 0.505882, 0.741176, 0.945098, 1 )
 sky_curve = 0.895249
-ground_bottom_color = Color( 0.341176, 0.0666667, 0.560784, 1 )
-ground_horizon_color = Color( 0.341176, 0.0666667, 0.560784, 1 )
-ground_curve = 1e-05
-sun_latitude = 123.11
-sun_longitude = 48.69
-sun_angle_min = 0.0
-sun_angle_max = 113.49
-sun_curve = 1e-05
+ground_bottom_color = Color( 0.580392, 0.690196, 0.92549, 1 )
+ground_horizon_color = Color( 0.639216, 0.701961, 0.960784, 1 )
 texture_size = 0
 
 [resource]
 background_mode = 2
 background_sky = SubResource( 1 )
+fog_enabled = true
+fog_color = Color( 0.580392, 0.690196, 0.92549, 1 )
+fog_sun_color = Color( 1, 1, 1, 1 )
+fog_depth_begin = 0.0
+fog_depth_end = 27.2
+fog_depth_curve = 0.870551
+fog_transmit_curve = 0.901249
+fog_height_enabled = true
+fog_height_min = 64.7
+fog_height_max = -60.9
+fog_height_curve = 2.14355
 tonemap_mode = 2
-tonemap_white = 6.0
+tonemap_white = 3.63
 ssao_blur = 1
+dof_blur_far_enabled = true
+dof_blur_near_distance = 11.27
 glow_levels/7 = true
 glow_strength = 0.79
 glow_bloom = 1.0

@@ -58,8 +58,10 @@ func _physics_process(delta):
 	if target:
 		look_at(target, Vector3.UP)
 		rotation.x = 0
-		velocity = -transform.basis.z * speed
-		if transform.origin.distance_to(target) < .5:
+		velocity.x = -transform.basis.z.x * speed
+		velocity.z = -transform.basis.z.z * speed
+		if transform.origin.distance_to(target) < 1:
 			target = null
-			velocity = Vector3.ZERO
+			velocity = Vector3(0, velocity.y, 0)
 	velocity = move_and_slide(velocity, Vector3.UP)
+	print(velocity.y)
