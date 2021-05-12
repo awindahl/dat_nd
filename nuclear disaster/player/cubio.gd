@@ -4,6 +4,7 @@ const MAX_SPEED = 3
 const JUMP_SPEED = 5
 const ACCELERATION = 2
 const DECELERATION = 4
+const TYPE = "PLAYER"
 
 onready var camera = $Target/Camera
 onready var gravity = -ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -14,6 +15,7 @@ var my_rotation
 var target = null
 var velocity = Vector3.ZERO
 var speed = 2
+var busy = false
 
 func _ready():
 	camera.get_parent().set_as_toplevel(true)
@@ -22,23 +24,14 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		yaw = fmod(yaw - event.relative.x * mouse_sensitivity, 360)
 		my_rotation = event.relative
-		
-#	if event is InputEventMouseButton and event.button_index == 1 and event.pressed:
-#		var ray_length = 100000
-#		var from = camera.project_ray_origin(get_viewport().get_mouse_position())
-#		var to = from + camera.project_ray_normal(get_viewport().get_mouse_position()) * ray_length
-#
-#		var space_state = get_world().direct_space_state
-#		target = space_state.intersect_ray(from, to).position
-		
-		
+	
 func _physics_process(delta):
 	var lmb = Input.is_action_pressed("lmb")
 	var rmb = Input.is_action_pressed("rmb")
 	
 	camera.get_parent().translation = translation 
 	
-	if lmb and not rmb:
+	if lmb and not rmb and not busy:
 		var ray_length = 100000
 		var from = camera.project_ray_origin(get_viewport().get_mouse_position())
 		var to = from + camera.project_ray_normal(get_viewport().get_mouse_position()) * ray_length
@@ -55,13 +48,13 @@ func _physics_process(delta):
 	
 	velocity.y += gravity * delta
 	
-	if target:
+	if target and not busy:
 		look_at(target, Vector3.UP)
 		rotation.x = 0
 		velocity.x = -transform.basis.z.x * speed
 		velocity.z = -transform.basis.z.z * speed
-		if transform.origin.distance_to(target) < 1:
+		if transform.origin.distance_to(target) < 1 or busy:
 			target = null
 			velocity = Vector3(0, velocity.y, 0)
 	velocity = move_and_slide(velocity, Vector3.UP)
-	print(velocity.y)
+	#print(velocity.y)
