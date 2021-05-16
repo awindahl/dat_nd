@@ -10,7 +10,7 @@ func _on_ClickSpace_input_event(camera, event, click_position, click_normal, sha
 			for item in list:
 				if item.get("TYPE") == "PLAYER":
 					print("interact true!")
-					get_parent().get_node("World/Cubio").look_at($ClickSpace.transform.origin, Vector3.UP)
+					get_parent().get_node("World/Cubio").look_at(transform.origin, Vector3.UP)
 					get_parent().get_node("World/Cubio").rotation.x = 0
 					get_parent().get_node("World/Cubio").velocity *= 0
 					get_parent().get_node("World/Cubio").target = null

@@ -1,8 +1,212 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://metaltank.glb" type="PackedScene" id=1]
+[ext_resource path="res://level.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/Interactable.gd" type="Script" id=3]
+[ext_resource path="res://models/rubble.tscn" type="PackedScene" id=4]
+
+[sub_resource type="SphereMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_transparent = true
+albedo_color = Color( 1, 0, 0.984314, 0.254902 )
+
+[sub_resource type="SphereShape" id=3]
+
+[sub_resource type="CylinderShape" id=4]
+radius = 1.73895
+height = 4.46923
+
+[sub_resource type="CylinderShape" id=5]
+
+[sub_resource type="CubeMesh" id=6]
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 1, 1, 0.882629 )
+
+[sub_resource type="ConcavePolygonShape" id=8]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="ConcavePolygonShape" id=9]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="ConcavePolygonShape" id=10]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="ConcavePolygonShape" id=11]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="ConcavePolygonShape" id=12]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
 
 [node name="Dan" type="Spatial"]
 
-[node name="metaltank" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45048, 0.320886, 1.03115 )
+[node name="World" parent="." instance=ExtResource( 2 )]
+
+[node name="Interactable" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.31033, 0 )
+script = ExtResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Interactable"]
+transform = Transform( 0.829857, 0, -0.557977, 0, 1, 0, 0.557977, 0, 0.829857, 4.12613, 2.45713, -0.55608 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="ClickSpace" type="Area" parent="Interactable"]
+transform = Transform( 0.829857, 0, -0.557977, 0, 1, 0, 0.557977, 0, 0.829857, 4.12613, 2.45713, -0.55608 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Interactable/ClickSpace"]
+shape = SubResource( 3 )
+
+[node name="metaltank" parent="Interactable" instance=ExtResource( 1 )]
+transform = Transform( 0.311224, 0, 0.950337, 0, 1, 0, -0.950337, 0, 0.311224, 4.23333, 1.8352, -0.50886 )
+
+[node name="StaticBody" type="StaticBody" parent="Interactable/metaltank"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Interactable/metaltank/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63848, 1.48433, -0.00305605 )
+shape = SubResource( 4 )
+
+[node name="InteractSpace" type="Area" parent="Interactable"]
+transform = Transform( 0.575445, 0, 0, 0, 1.25308, 0, 0, 0, 0.575445, 3.79024, 1.62251, 0.444853 )
+input_ray_pickable = false
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="Interactable/InteractSpace"]
+shape = SubResource( 5 )
+
+[node name="InteractTimer" type="Timer" parent="Interactable"]
+one_shot = true
+
+[node name="Corridor" type="StaticBody" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="Corridor"]
+transform = Transform( 8.37402, 0, 0, 0, 1, 0, 0, 0, 2.86088, 16.1611, -0.163922, 4.81226 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Corridor"]
+transform = Transform( 8.46102, 0, 0, 0, 1, 0, 0, 0, 3.41553, 15.9581, -0.161785, 4.89578 )
+shape = SubResource( 7 )
+
+[node name="Wall4" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0565, -0.00731277, -12.0466 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Wall4"]
+transform = Transform( 8.37402, 0, 0, 0, 1.92301, 0, 0, 0, 0.523083, 16.3884, 1.82021, 7.00342 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall4"]
+transform = Transform( 8.37402, 0, 0, 0, 1.92301, 0, 0, 0, 0.523083, 16.3884, 1.82021, 7.00342 )
+shape = SubResource( 8 )
+
+[node name="Wall2" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0325, -0.00365639, 5.53192 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Wall2"]
+transform = Transform( 8.37402, 0, 0, 0, 1.92301, 0, 0, 0, 0.523083, 16.3884, 1.82021, 7.00342 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall2"]
+transform = Transform( 8.37402, 0, 0, 0, 1.92301, 0, 0, 0, 0.523083, 16.3884, 1.82021, 7.00342 )
+shape = SubResource( 8 )
+
+[node name="Wall7" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8341, 0, -9.9732 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Wall7"]
+transform = Transform( 0.559206, 0, 0, 0, 1.92301, 0, 0, 0, 2.73159, 24.0158, 1.82021, 20.5356 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall7"]
+transform = Transform( 0.559206, 0, 0, 0, 1.92301, 0, 0, 0, 2.73159, 24.0158, 1.82021, 20.5356 )
+shape = SubResource( 9 )
+
+[node name="Wall6" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0696, 0, -22.2848 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Wall6"]
+transform = Transform( 0.559206, 0, 0, 0, 1.92301, 0, 0, 0, 2.73159, 24.0158, 1.82021, 20.5356 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall6"]
+transform = Transform( 0.559206, 0, 0, 0, 1.92301, 0, 0, 0, 2.73159, 24.0158, 1.82021, 20.5356 )
+shape = SubResource( 9 )
+
+[node name="Wall5" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.687, 0, -11.1424 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Wall5"]
+transform = Transform( 0.559206, 0, 0, 0, 1.92301, 0, 0, 0, 9.19651, 24.0158, 1.82021, 15.069 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall5"]
+transform = Transform( 0.559206, 0, 0, 0, 1.92301, 0, 0, 0, 9.19651, 24.0158, 1.82021, 15.069 )
+shape = SubResource( 10 )
+
+[node name="Wall3" type="StaticBody" parent="."]
+transform = Transform( 0.97993, 0, 0, 0, 0.97993, 0, 0, 0, 0.97993, -0.286534, 0, 0.581047 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Wall3"]
+transform = Transform( 8.37402, 0, 0, 0, 1.92301, 0, 0, 0, 0.523083, 16.3884, 1.82021, 7.00342 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall3"]
+transform = Transform( 8.37402, 0, 0, 0, 1.92301, 0, 0, 0, 0.523083, 16.3884, 1.82021, 7.00342 )
+shape = SubResource( 11 )
+
+[node name="Wall" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.57121 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Wall"]
+transform = Transform( 8.37402, 0, 0, 0, 1.92301, 0, 0, 0, 0.523083, 16.3789, 1.82021, 7.09813 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Wall"]
+transform = Transform( 8.37402, 0, 0, 0, 1.92301, 0, 0, 0, 0.523083, 16.3884, 1.82021, 7.00342 )
+shape = SubResource( 12 )
+
+[node name="Interactable2" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.97513, -1.04852, 4.22495 )
+script = ExtResource( 3 )
+
+[node name="rubble2" parent="Interactable2" instance=ExtResource( 4 )]
+transform = Transform( 0.798509, 0, 0.601982, 0, 1, 0, -0.601982, 0, 0.798509, 0.909331, 1.87369, 0.750238 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Interactable2"]
+transform = Transform( 0.829857, 0, -0.557977, 0, 1, 0, 0.557977, 0, 0.829857, -0.515704, 2.45713, 0.492063 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="ClickSpace" type="Area" parent="Interactable2"]
+transform = Transform( 0.829857, 0, -0.557977, 0, 1, 0, 0.557977, 0, 0.829857, -0.515704, 2.45713, 0.492063 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Interactable2/ClickSpace"]
+transform = Transform( 1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0 )
+shape = SubResource( 3 )
+
+[node name="InteractSpace" type="Area" parent="Interactable2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.50121, 2.97781, 0.434919 )
+input_ray_pickable = false
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="Interactable2/InteractSpace"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.265446, -0.167018, 0 )
+shape = SubResource( 5 )
+
+[node name="InteractTimer" type="Timer" parent="Interactable2"]
+one_shot = true
+
+[connection signal="input_event" from="Interactable/ClickSpace" to="Interactable" method="_on_ClickSpace_input_event"]
+[connection signal="timeout" from="Interactable/InteractTimer" to="Interactable" method="_on_InteractTimer_timeout"]
+[connection signal="input_event" from="Interactable2/ClickSpace" to="Interactable2" method="_on_ClickSpace_input_event"]
+[connection signal="timeout" from="Interactable2/InteractTimer" to="Interactable2" method="_on_InteractTimer_timeout"]
